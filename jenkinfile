@@ -14,7 +14,7 @@ pipeline {
         // Checkout Code from Git Repository
         stage ("checkout from GIT") {
             steps {
-                git branch: 'main', credentialsId: 'Guthub_Cred', url: 'https://github.com/miteshupadhyay/terraform'
+                git branch: 'main', credentialsId: 'Guthub_Cred', url: 'https://github.com/GururajKannur18/MC-StandardProject'
                 	script {
                          GIT_COMMIT_WITH_V = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
                     }
