@@ -1,0 +1,49 @@
+def dockerImage=""
+def applicationName="Bank-Service"
+
+pipeline {
+    agent any
+    environment{
+        AWS_ACCOUNT_ID="691311545893"
+        AWS_DEFAULT_REGION="ap-south-1"
+        IMAGE_REPO_NAME="customer-service-api"
+       # REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+    }
+
+    stages {
+        // Checkout Code from Git Repository
+        stage ("checkout from GIT") {
+            steps {
+                git branch: 'main', credentialsId: 'Guthub_Cred', url: 'https://github.com/miteshupadhyay/terraform'
+                	script {
+                         GIT_COMMIT_WITH_V = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+                    }
+            }
+        }
+
+        // Build and Compile Code
+
+
+        // Building Docker image
+
+
+        // Once Image gets Build Login to ECR Repository
+
+
+        // Uploading Docker image into AWS ECR
+
+        // Terraform Plan - VPC
+
+         // VPC CreationC
+
+        // Terraform Plan - ECS
+
+
+         // ECS Setup
+
+         // ECS Task Setup
+
+             }
+         // ECS Task Creation
+
+        }
